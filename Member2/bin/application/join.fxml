@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.JoinController">
+   <top>
+      <AnchorPane prefHeight="63.0" prefWidth="600.0" style="-fx-background-color: blue;" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="77.0" fitWidth="90.0" layoutX="255.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@sungil-registration.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+   </top>
+   <left>
+      <AnchorPane prefHeight="326.0" prefWidth="609.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="70.0" layoutY="29.0" prefHeight="23.0" prefWidth="32.0" text="이름">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="70.0" layoutY="70.0" prefHeight="23.0" prefWidth="49.0" text="아이디">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="70.0" layoutY="163.0" prefHeight="23.0" prefWidth="61.0" text="암호확인">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="70.0" layoutY="118.0" prefHeight="23.0" prefWidth="49.0" text="암호">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="95.0" layoutY="207.0" prefHeight="23.0" prefWidth="49.0" text="학년">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <PasswordField fx:id="pw2PasswordField" layoutX="144.0" layoutY="163.0" prefHeight="24.0" prefWidth="395.0" />
+            <PasswordField fx:id="pw1PasswordField" layoutX="144.0" layoutY="118.0" prefHeight="24.0" prefWidth="395.0" />
+            <TextField fx:id="idTextField" layoutX="144.0" layoutY="70.0" prefHeight="24.0" prefWidth="394.0" />
+            <TextField fx:id="nameTextField" layoutX="145.0" layoutY="29.0" prefHeight="24.0" prefWidth="394.0" />
+            <TextField fx:id="hakTextField" layoutX="131.0" layoutY="206.0" prefHeight="24.0" prefWidth="81.0" />
+            <Label layoutX="411.0" layoutY="207.0" prefHeight="23.0" prefWidth="49.0" text="번호">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="258.0" layoutY="207.0" prefHeight="23.0" prefWidth="49.0" text="반">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="banTextField" layoutX="283.0" layoutY="206.0" prefHeight="24.0" prefWidth="48.0" />
+            <TextField fx:id="bunTextField" layoutX="453.0" layoutY="206.0" prefHeight="24.0" prefWidth="46.0" />
+            <Button fx:id="joinButtom" layoutX="10.0" layoutY="266.0" mnemonicParsing="false" onAction="#joinButtonActionEvent" prefHeight="51.0" prefWidth="280.0" style="-fx-background-color: yellow;" text="회원 가입하기 " />
+            <Button fx:id="cancelButton" layoutX="312.0" layoutY="266.0" mnemonicParsing="false" onAction="#cancelButtonActionEvent" prefHeight="51.0" prefWidth="99.0" style="-fx-background-color: yellow;" text="취소" />
+            <Button fx:id="closeButton" layoutX="435.0" layoutY="266.0" mnemonicParsing="false" onAction="#closeButtonActionEvent" prefHeight="51.0" prefWidth="140.0" style="-fx-background-color: yellow;" text="창닫기" />
+         </children>
+      </AnchorPane>
+   </left>
+</BorderPane>

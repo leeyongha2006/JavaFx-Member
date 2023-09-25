@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ManageController">
+   <top>
+      <AnchorPane prefHeight="73.0" prefWidth="600.0" style="-fx-background-color: green;" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="64.0" fitWidth="118.0" layoutX="286.0" layoutY="4.0">
+               <image>
+                  <Image url="@sungil-membership.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+   </top>
+   <left>
+      <AnchorPane prefHeight="600.0" prefWidth="800.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="52.0" layoutY="14.0" prefHeight="27.0" prefWidth="41.0" text="이름">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="52.0" layoutY="56.0" prefHeight="27.0" prefWidth="65.0" text="아이디">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="52.0" layoutY="94.0" prefHeight="27.0" prefWidth="41.0" text="암호">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="52.0" layoutY="137.0" prefHeight="27.0" prefWidth="76.0" text="암호확인">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="104.0" layoutY="180.0" prefHeight="27.0" prefWidth="41.0" text="학년 ">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="290.0" layoutY="181.0" prefHeight="27.0" prefWidth="30.0" text="반">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="433.0" layoutY="181.0" prefHeight="27.0" prefWidth="41.0" text="번호">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <TextField fx:id="usernameTextField" layoutX="135.0" layoutY="17.0" prefHeight="28.0" prefWidth="447.0" />
+            <TextField fx:id="useridTextField" editable="false" layoutX="135.0" layoutY="57.0" prefHeight="31.0" prefWidth="445.0" />
+            <PasswordField fx:id="pwPasswordField" layoutX="135.0" layoutY="97.0" prefHeight="31.0" prefWidth="446.0" />
+            <PasswordField fx:id="pw2PasswordField" layoutX="135.0" layoutY="136.0" prefHeight="30.0" prefWidth="444.0" />
+            <TextField fx:id="hakTextField" layoutX="156.0" layoutY="181.0" prefHeight="24.0" prefWidth="66.0" />
+            <TextField fx:id="banTextField" layoutX="317.0" layoutY="184.0" prefHeight="24.0" prefWidth="66.0" />
+            <TextField fx:id="bunTextField" layoutX="471.0" layoutY="182.0" prefHeight="24.0" prefWidth="66.0" />
+            <Button fx:id="updateButton" layoutX="598.0" layoutY="8.0" mnemonicParsing="false" onAction="#updateButtonAction" prefHeight="68.0" prefWidth="82.0" style="-fx-background-color: pink;" text="수정">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Button>
+            <Button fx:id="deleteButton" layoutX="598.0" layoutY="82.0" mnemonicParsing="false" onAction="#deleteButtonAction" prefHeight="59.0" prefWidth="82.0" style="-fx-background-color: pink;" text="삭제">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Button>
+            <Button fx:id="readButton" ellipsisString=" " layoutX="598.0" layoutY="147.0" mnemonicParsing="false" onAction="#readButtonAction" prefHeight="215.0" prefWidth="82.0" style="-fx-background-color: pink;" text="리스트&#10; 읽 기">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Button>
+            <TableView fx:id="memberTableView" layoutX="37.0" layoutY="213.0" onMouseClicked="#memberTableViewAction" prefHeight="163.0" prefWidth="536.0">
+              <columns>
+                <TableColumn fx:id="usernameTableColumn" prefWidth="125.33332824707031" text="이름" />
+                <TableColumn fx:id="useridTableColumn" prefWidth="147.6666717529297" text="아이디" />
+                  <TableColumn fx:id="userpwTableColumn" prefWidth="138.0" text="암호" />
+                  <TableColumn fx:id="hakTableColumn" prefWidth="37.0" text="학년" />
+                  <TableColumn fx:id="banTableColumn" prefWidth="49.0" text="반" />
+                  <TableColumn fx:id="bunTableColumn" prefWidth="39.666656494140625" text="번호" />
+              </columns>
+            </TableView>
+            <Button fx:id="closeButton" layoutX="23.0" layoutY="378.0" mnemonicParsing="false" onAction="#closeButtonAction" prefHeight="46.0" prefWidth="654.0" style="-fx-background-color: green;" text="창닫기" textFill="#e8d129">
+               <font>
+                  <Font size="19.0" />
+               </font></Button>
+         </children>
+      </AnchorPane>
+   </left>
+</BorderPane>
