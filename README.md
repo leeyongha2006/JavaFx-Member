@@ -103,6 +103,113 @@ else {
 		}
 ```
 빈칸이 있거나 아이디 중복,비번 불일치, 학번이 잘못된 경우에는 경고메시지를 띄운다
+``` java
+private Boolean ischeckNum() {
+
+		Boolean result = false;
+
+		int hak;
+		int ban;
+		int bun;
+		try {
+			hak = Integer.parseInt(hakTextField.getText());
+			ban = Integer.parseInt(banTextField.getText());
+			bun = Integer.parseInt(bunTextField.getText());
+
+			if ((hak >= 1 && hak <= 3) && (ban >= 1 && ban <= 12) && (bun >= 1 && bun <= 30)) {
+				result = true;
+			}
+		} catch (Exception e) {
+		}
+		return result;
+	}
+```
+hak, ban, bun을 선언하여 정수형으로 만들고  학년은 1에서3사이, 반은 1에서12사이, 번호는 1에서30사이라면 result값을 true로 된다
+``` java
+private Boolean ischeckPw() {
+
+		Boolean result = false;
+
+		if (pw1PasswordField.getText().equals(pw2PasswordField.getText())) {
+			result = true;
+		}
+		return result;
+	}
+```
+첫번째 비번과 두번째 비번이 같으면 result값을 true로 된다
+``` java
+private Boolean ischeckId() {
+
+		Boolean result = false;
+
+		DBconnect conn = new DBconnect();
+		Connection conn2 = conn.getConnection();
+
+		String sql = "select USER_ID" 
+				+ " from USER_TABLE" 
+				+ " where USER_ID = ?";
+
+		try {
+			PreparedStatement ps = conn2.prepareStatement(sql);
+			ps.setString(1, idTextField.getText());
+			ResultSet rs = ps.executeQuery();
+			if(rs.next()) {
+				result = false;
+			}else {
+				result = true;
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+```
+아이디 중복 체크=> 디비 접속sql(현재 id칸에 입력된 값과 동일한 자료 검색)<br>
+=>만약 실행 결과값이 있다면 result false<br>
+=>그렇지 않으면 result true<br>
+``` java
+private Boolean ischeckEmpty() {
+		Boolean result = false;
+
+		if (nameTextField.getText().isEmpty() == false && idTextField.getText().isEmpty() == false
+				&& pw1PasswordField.getText().isEmpty() == false && pw2PasswordField.getText().isEmpty() == false
+				&& hakTextField.getText().isEmpty() == false && bunTextField.getText().isEmpty() == false
+				&& banTextField.getText().isEmpty() == false) {
+			result = true;
+		}
+		return result;
+	}
+```
+만약에 이름, 아이디, 비번, 비번2, 학년, 반, 번호가 비어있지 않으면변수 result 값을 true로 된다
+``` java
+@FXML
+	private void cancelButtonActionEvent(ActionEvent event) {
+		// 초기화
+		idTextField.setText("");
+		nameTextField.setText("");
+		bunTextField.setText("");
+		hakTextField.setText("");
+		pw1PasswordField.setText("");
+		pw2PasswordField.setText("");
+		banTextField.setText("");
+	}
+```
+초기화 버튼
+
+``` java
+@FXML
+	private void closeButtonActionEvent(ActionEvent event) {
+		Stage stage = (Stage) closeButton.getScene().getWindow();
+		stage.close();
+	}
+```
+창닫기 버튼
+
+
+
+
+
 
 
 
