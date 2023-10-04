@@ -2,38 +2,9 @@
 JavaFX를 사용하여 회원가입 화면 구현하기
 # 회원가입 화면
 ![image](https://github.com/leeyongha2006/JavaFx-Member/assets/126844590/5d42878c-40c7-499c-98ca-0735c06a6396)
-# DBConnect
-``` java
-package application;
-
-import java.sql.Connection;
-import java.sql.DriverManager;
-
-public class DBconnect {
-	
-	public Connection conn;
-	
-	public Connection getConnection() {
-		
-		String driver="oracle.jdbc.driver.OracleDriver";
-		String url ="jdbc:oracle:thin:@localhost:1521:xe";
-		String id = "school";
-		String pw="school";
-		try {
-			Class.forName(driver);
-			conn=DriverManager.getConnection(url, id, pw);
-			System.out.println("성공");
-			
-		} catch (Exception e) {
-			e.printStackTrace();
-			System.out.println("실패");
-		}
-		return conn;
-	}
-}
-```
-로그인 및 회원가입을 위해 데이터베이스와 연동한다
 # joinController
+![image](https://github.com/leeyongha2006/JavaFx-Member/assets/126844590/2580c745-fccc-4909-b0c2-49770f0d15ec)
+
 ``` java
 		Boolean checkEmpty = false;
 		Boolean checkId = false;
@@ -182,29 +153,40 @@ private Boolean ischeckEmpty() {
 	}
 ```
 만약에 이름, 아이디, 비번, 비번2, 학년, 반, 번호가 비어있지 않으면변수 result 값을 true로 된다
+
+# LoginController
+관리자에 체크하면 관리자 로그인, 체크하지 않으면 사용자 로그인되는 방식이다
+![image](https://github.com/leeyongha2006/JavaFx-Member/assets/126844590/409f34ab-99e9-461e-96cc-cea3ae3c6551)
 ``` java
-@FXML
-	private void cancelButtonActionEvent(ActionEvent event) {
-		// 초기화
-		idTextField.setText("");
-		nameTextField.setText("");
-		bunTextField.setText("");
-		hakTextField.setText("");
-		pw1PasswordField.setText("");
-		pw2PasswordField.setText("");
-		banTextField.setText("");
-	}
+if(adminCheckBox.isSelected() == true) { // 관리자 체크박스에 체크 되어있고
+				if(isAdminLogin() == true) { // 메소드를 만들어서 관리자 DB에 저장되어 있는 데이터와 입력받은 데이터를 비교하여 값이 true이라면
+					Alert alert = new Alert(AlertType.INFORMATION);
+					alert.setContentText("관리자 로그인 성공!");
+					alert.show();
+					loginButton.setText("로그아웃"); // 로그인 버튼을 로그아웃 버튼으로 전환
+					joinButton.setDisable(false); // 회원가입 버튼 활성화
+					joinButton.setText("회원관리메뉴"); // 회원가입 버튼을 회원관리메뉴로 전환
+					Adminlogin = isAdminLogin();
+				}
 ```
-초기화 버튼
+![image](https://github.com/leeyongha2006/JavaFx-Member/assets/126844590/9e5eb623-f5fb-4989-a5ee-526efb6d2410)
 
 ``` java
-@FXML
-	private void closeButtonActionEvent(ActionEvent event) {
-		Stage stage = (Stage) closeButton.getScene().getWindow();
-		stage.close();
-	}
+else { // 관리자 체크박스에 체크 X
+				if(isUserLogin() == true) { // 메소드를 만들어서 사용자DB에 저장되어 있는 데이터와 입력받은 데이터를 비교하여 값이 true이라면
+					Main.global_id = idTextField.getText();
+					Alert alert = new Alert(AlertType.INFORMATION);
+					alert.setContentText("사용자 로그인 성공!");
+					alert.show();
+					loginButton.setText("로그아웃"); // 로그인 버튼을 로그아웃 버튼으로 전환
+					joinButton.setText("회원정보수정"); // 회원가입 버튼을 회원정보수정으로 전환
+					Userlogin = isUserLogin(); 
+				}
 ```
-창닫기 버튼
+
+
+
+
 
 
 
