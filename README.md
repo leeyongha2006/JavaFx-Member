@@ -183,6 +183,11 @@ else { // 관리자 체크박스에 체크 X
 					Userlogin = isUserLogin(); 
 				}
 ```
+# ManegeController
+![image](https://github.com/leeyongha2006/JavaFx-Member/assets/126844590/43b3cc57-c5c2-45ce-b482-abf4da0c8378)
+리스트 읽기를 누른 후 사용자 정보 수정과 삭제를 할 수 있다
+
+
 
 
 
